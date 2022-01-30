@@ -26,3 +26,12 @@ docker container stop echo
 docker container prune
 docker image prune
 ```
+
+```shell
+docker-compose up -d
+docker container ls
+# echoコンテナが表示される
+
+# docker-compose.ymlで定義しているコンテナを全て停止・削除
+docker-compose down
+```
