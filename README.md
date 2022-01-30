@@ -13,5 +13,16 @@ curl http://localhost:8080
 > P.45
 
 ```shell
-docker container run -p 9000:8080 example/echo:latest
+# バックグランド実行
+docker container run -d -p 9000:8080 example/echo:latest
+
+# 名前付き実行
+docker container run -t -d --name echo example/echo:latest
+docker container stop echo
+```
+
+```shell
+# 停止しているコンテナ、イメージを一括削除
+docker container prune
+docker image prune
 ```
