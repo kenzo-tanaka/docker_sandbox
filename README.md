@@ -11,3 +11,7 @@ curl http://localhost:8080
 > Dockerコンテナは仮想環境だが、外からは1つの独立したマシンのように扱える特徴がある。
 > echoアプリケーションは8080ポートを公開しているが、このポートはコンテナポートと呼ばれるコンテナ内に限定されたポートである。
 > P.45
+
+```shell
+docker container run -p 9000:8080 example/echo:latest
+```
