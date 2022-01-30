@@ -35,3 +35,9 @@ docker container ls
 # docker-compose.ymlで定義しているコンテナを全て停止・削除
 docker-compose down
 ```
+
+docker-composeはデフォルトではイメージがビルド済みの場合は、ビルドを省略してコンテナの実行をするが、`--build`オプションを付けることで、`docker-compose up`の際には必ずDockerイメージをビルドさせることができる。
+
+```shell
+docker-compose up -d --build
+```
