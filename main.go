@@ -1,20 +1,19 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 )
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		log.Println("request get")
-		fmt.Fprintf(w, "Hello docker")
+		w.Write([]byte(`
+			<html>
+				<p>Hello, world</p>
+			</html>
+		`))
 	})
-
-	log.Println("server started")
-	server := &http.Server{Addr: "8080"}
-	if err := server.ListenAndServe(); err != nil {
-		log.Println(err)
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		log.Fatal("ListenAndServe:", err)
 	}
 }
