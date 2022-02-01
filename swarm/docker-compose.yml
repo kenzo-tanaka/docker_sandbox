@@ -1,3 +1,6 @@
+# P.101
+# Docker Swarmを使ってDocker in Docker(Dockerホストをコンテナで入れ子)にする
+
 version: '3'
 services:
   registry:
@@ -20,6 +23,8 @@ services:
       - registry
     expose:
       - 3375
+    # Dockerレジストリへのaccessは通常HTTPSが前提だが、
+    # 各コンテナからregistryへのアクセスはHTTPのため、HTTPで接続できるようOptionを指定
     command: "--insecure-registry registry:5000"
     volumes:
       - "./stack/stack"
