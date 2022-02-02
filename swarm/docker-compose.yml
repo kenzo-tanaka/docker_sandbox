@@ -1,7 +1,7 @@
 # P.101
 # Docker Swarmを使ってDocker in Docker(Dockerホストをコンテナで入れ子)にする
 
-version: '3'
+version: "3"
 services:
   registry:
     container_name: registry
@@ -20,14 +20,12 @@ services:
       - 8000:80
       - 9000:9000
     depends_on:
-      - registry
+      - registry 
     expose:
       - 3375
-    # Dockerレジストリへのaccessは通常HTTPSが前提だが、
-    # 各コンテナからregistryへのアクセスはHTTPのため、HTTPで接続できるようOptionを指定
     command: "--insecure-registry registry:5000"
     volumes:
-      - "./stack/stack"
+      - "./stack:/stack"
 
   worker01:
     container_name: worker01
@@ -36,10 +34,10 @@ services:
     tty: true
     depends_on:
       - manager
-      - registry
+      - registry 
     expose:
-      - 7964
-      - 7964/udp
+      - 7946
+      - 7946/udp
       - 4789/udp
     command: "--insecure-registry registry:5000"
 
@@ -50,10 +48,10 @@ services:
     tty: true
     depends_on:
       - manager
-      - registry
+      - registry 
     expose:
-      - 7964
-      - 7964/udp
+      - 7946
+      - 7946/udp
       - 4789/udp
     command: "--insecure-registry registry:5000"
 
@@ -64,9 +62,9 @@ services:
     tty: true
     depends_on:
       - manager
-      - registry
+      - registry 
     expose:
-      - 7964
-      - 7964/udp
+      - 7946
+      - 7946/udp
       - 4789/udp
-    command: "--insecure-registry registry:5000"  
+    command: "--insecure-registry registry:5000"
