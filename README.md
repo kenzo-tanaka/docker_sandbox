@@ -54,3 +54,10 @@ docker-compose -d
 Install cli: [Install and Set Up kubectl on macOS | Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/)
 
 Dashboard: [Deploy and Access the Kubernetes Dashboard | Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
+
+
+```shell
+# Run dashboard
+kubectl proxy
+# http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login
+```
