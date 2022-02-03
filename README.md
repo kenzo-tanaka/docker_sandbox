@@ -61,3 +61,11 @@ Dashboard: [Deploy and Access the Kubernetes Dashboard | Kubernetes](https://kub
 kubectl proxy
 # http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login
 ```
+
+Node=クラスタ下に登録されているDockerホスト。
+
+```shell
+kubectl get nodes
+NAME             STATUS   ROLES                  AGE   VERSION
+docker-desktop   Ready    control-plane,master   17m   v1.22.4
+```
