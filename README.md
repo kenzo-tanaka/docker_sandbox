@@ -49,3 +49,6 @@ cd swarm/
 docker-compose -d
 ```
 
+# Kubernetes
+
+[Install and Set Up kubectl on macOS | Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/)
